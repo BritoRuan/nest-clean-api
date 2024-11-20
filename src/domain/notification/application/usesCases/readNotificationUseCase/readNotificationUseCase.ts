@@ -1,5 +1,5 @@
 import { ResourceNotFoundError } from '@/core/errors/errors/ResourceNotFoundError/ResourceNotFoundError'
-import { INotificationRepository } from '../../repositories/contracts/notificationRepository'
+import { NotificationRepository } from '../../repositories/contracts/notificationRepository'
 import { NotAllowedError } from '@/core/errors/errors/NotAllowedError/NotAllowedError'
 import { Notification } from '@/domain/notification/enterprise/entitites/notification'
 import { Either, left, right } from '@/core/either/either'
@@ -17,7 +17,7 @@ type ReadNotificationUseCaseResponse = Either<
 >
 
 export class ReadNotificationUseCase {
-  constructor(private notificationRepository: INotificationRepository) {}
+  constructor(private notificationRepository: NotificationRepository) {}
 
   async execute({
     recipientId,

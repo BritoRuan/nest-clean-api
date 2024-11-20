@@ -1,4 +1,4 @@
-import { INotificationRepository } from '../../repositories/contracts/notificationRepository'
+import { NotificationRepository } from '../../repositories/contracts/notificationRepository'
 import { Notification } from '@/domain/notification/enterprise/entitites/notification'
 import { UniqueEntityId } from '@/core/entities/uniqueEntityId'
 import { Either, right } from '@/core/either/either'
@@ -17,7 +17,7 @@ type SendNotificationUseCaseResponse = Either<
 >
 
 export class SendNotificationUseCase {
-  constructor(private notificationRepository: INotificationRepository) {}
+  constructor(private notificationRepository: NotificationRepository) {}
 
   async execute({
     recipientId,
