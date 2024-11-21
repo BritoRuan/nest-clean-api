@@ -1,8 +1,8 @@
-import { IQuestionAttachmentsRepository } from '../../../repositories/contracts/questionAttachmentsRepository'
+import { QuestionAttachmentsRepository } from '../../../repositories/contracts/questionAttachmentsRepository'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/questionAttachmentList'
 import { ResourceNotFoundError } from '@/core/errors/errors/ResourceNotFoundError/ResourceNotFoundError'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/questionAttachment'
-import { IQuestionRepository } from '../../../repositories/contracts/questionsRepository'
+import { QuestionsRepository } from '../../../repositories/contracts/questionsRepository'
 import { NotAllowedError } from '@/core/errors/errors/NotAllowedError/NotAllowedError'
 import { Question } from '@/domain/forum/enterprise/entities/question'
 import { UniqueEntityId } from '@/core/entities/uniqueEntityId'
@@ -25,8 +25,8 @@ type EditQuestionUseCaseResponse = Either<
 
 export class EditQuestionUseCase {
   constructor(
-    private questionRepository: IQuestionRepository,
-    private questionAttachmentsRepository: IQuestionAttachmentsRepository,
+    private questionsRepository: QuestionsRepository,
+    private questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
   async execute({
@@ -36,7 +36,7 @@ export class EditQuestionUseCase {
     content,
     attachmentsIds,
   }: EditQuestionUseCaseRequest): Promise<EditQuestionUseCaseResponse> {
-    const question = await this.questionRepository.findById(questionId)
+    const question = await this.questionsRepository.findById(questionId)
 
     if (!question) {
       return left(new ResourceNotFoundError())
@@ -66,7 +66,7 @@ export class EditQuestionUseCase {
     question.content = content
     question.attachments = questionAttachmentList
 
-    await this.questionRepository.save(question)
+    await this.questionsRepository.save(question)
 
     return right({
       question,

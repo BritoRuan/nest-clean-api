@@ -1,4 +1,4 @@
-import { IQuestionCommentsRepository } from '../../../repositories/contracts/questionCommentsRepository'
+import { QuestionCommentsRepository } from '../../../repositories/contracts/questionCommentsRepository'
 import { QuestionComment } from '@/domain/forum/enterprise/entities/questionComment'
 import { Either, right } from '@/core/either/either'
 
@@ -15,9 +15,7 @@ type FetchQuestionCommentsUseCaseResponse = Either<
 >
 
 export class FetchQuestionCommentsUseCase {
-  constructor(
-    private questionCommentsRepository: IQuestionCommentsRepository,
-  ) {}
+  constructor(private questionCommentsRepository: QuestionCommentsRepository) {}
 
   async execute({
     questionId,

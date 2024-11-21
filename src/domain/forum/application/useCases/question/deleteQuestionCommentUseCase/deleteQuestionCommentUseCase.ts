@@ -1,5 +1,5 @@
 import { ResourceNotFoundError } from '@/core/errors/errors/ResourceNotFoundError/ResourceNotFoundError'
-import { IQuestionCommentsRepository } from '../../../repositories/contracts/questionCommentsRepository'
+import { QuestionCommentsRepository } from '../../../repositories/contracts/questionCommentsRepository'
 import { NotAllowedError } from '@/core/errors/errors/NotAllowedError/NotAllowedError'
 import { Either, left, right } from '@/core/either/either'
 
@@ -14,7 +14,7 @@ type DeleteQuestionCommentUseCaseResponse = Either<
 >
 
 export class DeleteQuestionCommentUseCase {
-  constructor(private questionCommentRepository: IQuestionCommentsRepository) {}
+  constructor(private questionCommentRepository: QuestionCommentsRepository) {}
 
   async execute({
     authorId,

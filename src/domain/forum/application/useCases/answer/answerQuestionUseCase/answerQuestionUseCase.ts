@@ -1,6 +1,6 @@
 import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answerAttachmentList'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answerAttachment'
-import { IAnswerRepository } from '../../../repositories/contracts/answersRepository'
+import { AnswersRepository } from '../../../repositories/contracts/answersRepository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { UniqueEntityId } from '@/core/entities/uniqueEntityId'
 import { Either, right } from '@/core/either/either'
@@ -20,7 +20,7 @@ type AnswerAnswerUseCaseResponse = Either<
 >
 
 export class AnswerQuestionUseCase {
-  constructor(private answerRepository: IAnswerRepository) {}
+  constructor(private answersRepository: AnswersRepository) {}
 
   async execute({
     instructorId,
@@ -43,7 +43,7 @@ export class AnswerQuestionUseCase {
 
     answer.attachments = new AnswerAttachmentList(answerAttachments)
 
-    await this.answerRepository.create(answer)
+    await this.answersRepository.create(answer)
 
     return right({
       answer,
