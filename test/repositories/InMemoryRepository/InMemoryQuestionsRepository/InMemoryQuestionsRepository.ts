@@ -1,14 +1,14 @@
-import { IQuestionAttachmentsRepository } from '@/domain/forum/application/repositories/contracts/questionAttachmentsRepository'
-import { IQuestionRepository } from '@/domain/forum/application/repositories/contracts/questionsRepository'
+import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/contracts/questionAttachmentsRepository'
+import { QuestionsRepository } from '@/domain/forum/application/repositories/contracts/questionsRepository'
 import { PaginationParams } from '@/core/repositories/paginationParams'
 import { Question } from '@/domain/forum/enterprise/entities/question'
 import { DomainEvents } from '@/core/events/domainEvents'
 
-export class InMemoryQuestionsRepository implements IQuestionRepository {
+export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
 
   constructor(
-    private questionAttachmentsRepository: IQuestionAttachmentsRepository,
+    private questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
   async findById(id: string) {

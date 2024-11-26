@@ -1,9 +1,7 @@
-import { INotificationRepository } from '@/domain/notification/application/repositories/contracts/notificationRepository'
+import { NotificationRepository } from '@/domain/notification/application/repositories/contracts/notificationRepository'
 import { Notification } from '@/domain/notification/enterprise/entitites/notification'
 
-export class InMemoryNotificationsRepository
-  implements INotificationRepository
-{
+export class InMemoryNotificationsRepository implements NotificationRepository {
   public items: Notification[] = []
 
   async findById(id: string) {

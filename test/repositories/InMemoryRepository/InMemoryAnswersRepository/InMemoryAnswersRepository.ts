@@ -1,14 +1,14 @@
-import { IAnswerAttachmentsRepository } from '@/domain/forum/application/repositories/contracts/answerAttachmentsRepository'
-import { IAnswerRepository } from '@/domain/forum/application/repositories/contracts/answersRepository'
+import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/contracts/answerAttachmentsRepository'
+import { AnswersRepository } from '@/domain/forum/application/repositories/contracts/answersRepository'
 import { PaginationParams } from '@/core/repositories/paginationParams'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { DomainEvents } from '@/core/events/domainEvents'
 
-export class InMemoryAnswerRepository implements IAnswerRepository {
+export class InMemoryAnswerRepository implements AnswersRepository {
   public items: Answer[] = []
 
   constructor(
-    private answerAttachmentsRepository: IAnswerAttachmentsRepository,
+    private answerAttachmentsRepository: AnswerAttachmentsRepository,
   ) {}
 
   async findById(id: string) {
