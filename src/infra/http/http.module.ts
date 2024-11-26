@@ -7,6 +7,8 @@ import { CreateQuestionController } from './controllers/questionControllers/crea
 import { FetchRecentQuestionsController } from './controllers/questionControllers/fetch-recent-questions.controller'
 import { RegisterStudentUseCase } from '@/domain/forum/application/useCases/student/registerStudentUseCase/registerStudentUseCase'
 import { CryptographyModule } from '../cryptography/cryptography.module'
+import { CreateQuestionUseCase } from '@/domain/forum/application/useCases/question/createQuestionUseCase/createQuestionUseCase'
+import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/useCases/question/fetchRecentQuestionsUseCase/fetchRecentQuestionsUseCase'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -17,8 +19,8 @@ import { CryptographyModule } from '../cryptography/cryptography.module'
     FetchRecentQuestionsController,
   ],
   providers: [
-    CreateAccountController,
-    FetchRecentQuestionsController,
+    CreateQuestionUseCase,
+    FetchRecentQuestionsUseCase,
     RegisterStudentUseCase,
     AuthenticateStudentUseCase,
   ],
