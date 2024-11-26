@@ -1,11 +1,11 @@
 import { PaginationParams } from '@/core/repositories/paginationParams'
-import { IAnswerCommentsRepository } from '@/domain/forum/application/repositories/contracts/answerCommentsRepository'
+import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/contracts/answerCommentsRepository'
 import { AnswerComment } from '@/domain/forum/enterprise/entities/answerComment'
 import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class PrismaAnswersCommentsRepository
-  implements IAnswerCommentsRepository
+  implements AnswerCommentsRepository
 {
   findById(id: string): Promise<AnswerComment | null> {
     throw new Error('Method not implemented.')
