@@ -4,7 +4,7 @@ import { PrismaAnswersAttachmentsRepository } from './prisma/repositories/prisma
 import { PrismaAnswersCommentsRepository } from './prisma/repositories/prisma-answer-comments-repository'
 import { PrismaAnswersRepository } from './prisma/repositories/prisma-answers-repository'
 import { PrismaQuestionsRepository } from './prisma/repositories/prisma-questions-repository'
-import { PrismaQuestionsCommentsRepository } from './prisma/repositories/prisma-questions-comments-repository'
+import { PrismaQuestionsCommentsRepository } from './prisma/repositories/prisma-question-comments-repository'
 import { PrismaQuestionAttachmentsRepository } from './prisma/repositories/prisma-question-attachments-repository'
 import { QuestionsRepository } from '@/domain/forum/application/repositories/contracts/questionsRepository'
 import { StudentsRepository } from '@/domain/forum/application/repositories/contracts/studentsRepository'
